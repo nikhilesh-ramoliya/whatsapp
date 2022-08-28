@@ -53,13 +53,13 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={
+        <Route path='/whatsapp/' element={
           user ? (<div className="app_body">
           <Sidebar />
           <Chat user={user.email} />
         </div>) :(<LoginPage logout={logout} signInWithGoogle={signInWithGoogle} />)
         } />
-        <Route path='login' element={
+        <Route path='/whatsapp/login' element={
           <LoginPage logout={logout} signInWithGoogle={signInWithGoogle} />
         } />
       </Routes>

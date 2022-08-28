@@ -15,6 +15,8 @@
     display: flex;
     flex-direction: column;
     flex: 0.35;
+    display: none;
+    border:2px solid black;
 }
 .sidebar_header{
     padding: 20px;
@@ -35,11 +37,6 @@
     margin-right: 2vw;
     font-size: 24px !important;
 }
-/* .sidebar_search{
-    justify-content: center;
-    padding: 20px;
-    margin-bottom: 20px;
-} */
 .sidebar_searchContainer{
     display: flex;
     background-color: white;

@@ -1,14 +1,14 @@
 import React from 'react'
 import "./Chat.css"
-import Chat_body from './Chat_body'
-import Chat_footer from './Chat_footer'
-import Chat_header from './Chat_header'
-function Chat() {
+import ChatBody from './Chat_body'
+import ChatFooter from './Chat_footer'
+import ChatHeader from './Chat_header'
+function Chat({user}) {
   return (
     <div className='Chat'>
-      <Chat_header/>
-      <Chat_body/>
-      <Chat_footer/>
+      <ChatHeader user={user}/>
+      <ChatBody  user={user}/>
+      <ChatFooter user={user}/>
     </div>
   )
 }

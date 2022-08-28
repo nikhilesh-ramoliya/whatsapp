@@ -1,4 +1,4 @@
-import { ChatBubble, DonutLargeOutlined, MoreVertOutlined, SearchOutlined } from '@mui/icons-material'
+import { ChatBubble, DonutLargeOutlined, MoreVertOutlined } from '@mui/icons-material'
 import { Avatar, IconButton } from '@mui/material'
 import React from 'react'
 

@@ -1,22 +1,33 @@
+import { DeleteForeverOutlined } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react'
 
-function Chat_message({ reciever }) {
+function Chat_message({ reciever, name, date, message, _id,user }) {
+    const nameofuser =user.user
     const [messagetype, setmessagetype] = useState("");
-    console.log(messagetype);
     useEffect(() => {
-        if (reciever) {
+        if (name===nameofuser) {
             setmessagetype("Chat_reciever")
         } else {
             setmessagetype(" ")
         }
     }, [])
+
+    const deletemenu = () => {
+        const element = document.getElementById(_id);
+        element.classList.toggle("messageMenu1");
+    }
     return (
-        <div className={'Chat_message' + " " + messagetype}>
-            HAY GUYS
+        <div
+            onClick={deletemenu}
+            className={'Chat_message' + " " + messagetype}>
+            {message}
             <span className="Chat_name">
-                SUNNY SHARMA
+                {name}
             </span>
-            <span className='time_span'>3:32 PM</span>
+            <span className='time_span'>{date}</span>
+            <div className="messageMenu" id={_id}>
+                <DeleteForeverOutlined />
+            </div>
 
         </div>
     )

@@ -1,5 +1,4 @@
-import { ChatBubble, DonutLargeOutlined, MoreVertOutlined, SearchOutlined } from '@mui/icons-material'
-import { Avatar, IconButton } from '@mui/material'
+import {  SearchOutlined } from '@mui/icons-material'
 import React from 'react'
 
 function Sidebar_search() {

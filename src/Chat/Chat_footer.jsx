@@ -17,7 +17,7 @@ function Chat_footer(user) {
     const send_message = (e) => {
         e.preventDefault();
         axios.post("/messages/new", sendingmessage).then((response)=>{
-            console.log(response);
+            console.log("message sended");
         })
     }
 

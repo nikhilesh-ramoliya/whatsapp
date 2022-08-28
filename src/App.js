@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
-import './App.css';
 import Chat from './Chat/Chat';
 import Sidebar from './Sidebar/Sidebar';
 import app from "./firebase/Firebase_config";

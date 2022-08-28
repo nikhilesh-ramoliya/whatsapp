@@ -1,10 +1,9 @@
 import React from 'react'
-import "./LoginPage.css"
 function LoginPage({logout, signInWithGoogle}) {
   
 
     return (
-        <div>
+        <div className='Loginpage'>
             <button className='googlebutton' onClick={signInWithGoogle}>sign in with google</button>
             <button onClick={logout}>logout</button>
         </div>

@@ -10,6 +10,7 @@ function Chat_message({ reciever, name, date, message, _id,user }) {
         } else {
             setmessagetype(" ")
         }
+        // eslint-disable-next-line
     }, [])
 
     const deletemenu = () => {
@@ -19,6 +20,7 @@ function Chat_message({ reciever, name, date, message, _id,user }) {
     return (
         <div
             onClick={deletemenu}
+            // eslint-disable-next-line
             className={'Chat_message' + " " + messagetype}>
             {message}
             <span className="Chat_name">

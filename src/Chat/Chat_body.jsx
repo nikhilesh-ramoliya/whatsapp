@@ -9,11 +9,12 @@ function Chat_body(user) {
   //!
   const [messages, setMessages] = useState([]);
 
-  const fatchMessages = () =>{
+  const fatchMessages = () => {
     axios.get("/messages/sync")
-    .then((response) => {
-      setMessages(response.data)
-    });
+      .then((response) => {
+        console.log(response);
+        setMessages(response.data)
+      });
   }
 
 
@@ -34,15 +35,14 @@ function Chat_body(user) {
 
     channel.bind('inserted', function (data) {
       setMessages([...messages, data])
-      
     })
-    channel.bind("deleted", (data)=>{
+    channel.bind("deleted", (data) => {
       console.log(
         "deleted document"
       );
     })
     channel.bind('invalidate', function (data) {
-      console.log("invalidate");      
+      console.log("invalidate");
     });
 
     return () => {
@@ -55,15 +55,15 @@ function Chat_body(user) {
   //!
 
   return (
-    <div className='Chat_body'>
+    <div className='Chat_body' id='Chat_body'>
       {
-        messages.map((message)=>{
+        messages.map((message) => {
           return (
-            <Chatmessage 
-              fatchMessages = {fatchMessages}
+            <Chatmessage
+              fatchMessages={fatchMessages}
               reciever={message.recieved}
               key={message._id}
-              _id= {message._id}
+              _id={message._id}
               name={message.name}
               message={message.message}
               date={message.timestamp}

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Chat from './Chat/Chat';
 import Sidebar from './Sidebar/Sidebar';
 import app from "./firebase/Firebase_config";
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut } from "firebase/auth"
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithRedirect, signOut } from "firebase/auth"
 
 //!---------------------------------------------------------
 //!---------------------------------------------------------
@@ -54,9 +54,9 @@ function App() {
       <Routes>
         <Route path='/whatsapp/' element={
           user ? (<div className="app_body">
-          <Sidebar />
-          <Chat user={user.email} />
-        </div>) :(<LoginPage logout={logout} signInWithGoogle={signInWithGoogle} />)
+            <Sidebar />
+            <Chat user={user.email} />
+          </div>) : (<LoginPage logout={logout} signInWithGoogle={signInWithGoogle} />)
         } />
         <Route path='/whatsapp/login' element={
           <LoginPage logout={logout} signInWithGoogle={signInWithGoogle} />

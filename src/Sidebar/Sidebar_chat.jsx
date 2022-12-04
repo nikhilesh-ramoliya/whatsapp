@@ -1,16 +1,16 @@
 import { Avatar } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 
-function Sidebar_chat({addNewChat}) {
+function Sidebar_chat({ addNewChat }) {
   const [seed, setseed] = useState("");
   useEffect(() => {
     setseed(Math.floor(Math.random() * 5000))
   }, [])
 
 
-  const createChat = () =>{
+  const createChat = () => {
     const roomName = prompt("Please enter name for chat");
-    if(roomName){
+    if (roomName) {
       //!do some clave databes.. stuff
     }
   }
@@ -23,10 +23,10 @@ function Sidebar_chat({addNewChat}) {
         <p>last message...</p>
       </div>
     </div>
-  ):(
+  ) : (
     <div
-    onClick={createChat}
-    className="sidebar_chat">
+      onClick={createChat}
+      className="sidebar_chat">
       <h2>Add new chat</h2>
     </div>
   )

@@ -2,30 +2,29 @@ import { DeleteForeverOutlined } from '@mui/icons-material';
 import axios from '../axios';
 import React, { useEffect, useState } from 'react'
 
-function Chat_message({  name, date, message, _id,user, fatchMessages }) {
-    const nameofuser =user.user
+function Chat_message({ name, date, message, _id, user, fatchMessages }) {
+    const nameofuser = user.user
     const [messagetype, setmessagetype] = useState("");
     useEffect(() => {
-        if (name===nameofuser) {
+        if (name === nameofuser) {
             setmessagetype("Chat_reciever")
         } else {
             setmessagetype(" ")
         }
-        // eslint-disable-next-line
     }, [])
 
     const deletemenu = () => {
         const element = document.getElementById(_id);
         element.classList.toggle("messageMenu1");
     }
-    const deleteMessage = (id)=>{
+    const deleteMessage = (id) => {
         console.log(id);
-        axios.put(`/messages/delete/${id}`, (err)=>{
+        axios.put(`/messages/delete/${id}`, (err) => {
             !err ? console.log("deleted successfully") : console.log(err);
-        }).then(()=>{
+        }).then(() => {
             fatchMessages();
         })
-        
+
     }
 
     return (
@@ -38,8 +37,8 @@ function Chat_message({  name, date, message, _id,user, fatchMessages }) {
                 {name}
             </span>
             <span className='time_span'>{date}</span>
-            <div className="messageMenu" id={_id} onClick={()=>{deleteMessage(_id)}}>
-                <DeleteForeverOutlined />
+            <div className="messageMenu" id={_id} onClick={() => { deleteMessage(_id) }}>
+                <DeleteForeverOutlined fontSize={"inherit"} />
             </div>
 
         </div>

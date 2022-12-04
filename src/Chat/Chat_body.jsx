@@ -9,17 +9,18 @@ function Chat_body(user) {
   //!
   const [messages, setMessages] = useState([]);
 
-  const fatchMessages = () => {
-    axios.get("/messages/sync")
-      .then((response) => {
-        console.log(response);
-        setMessages(response.data)
-      });
+  const fatchMessages = async () => {
+    const response = await axios.get("/messages/sync")
+    setMessages(response.data)
   }
 
 
   useEffect(() => {
     fatchMessages()
+    setTimeout(() => {
+      var elem = document.getElementById('Chat_body');
+      elem.scrollTop = elem.scrollHeight;
+    }, 500)
   }, [])
   // console.log(messages);
 
@@ -35,6 +36,10 @@ function Chat_body(user) {
 
     channel.bind('inserted', function (data) {
       setMessages([...messages, data])
+      setTimeout(() => {
+        var elem = document.getElementById('Chat_body');
+        elem.scrollTop = elem.scrollHeight;
+      }, 50)
     })
     channel.bind("deleted", (data) => {
       console.log(

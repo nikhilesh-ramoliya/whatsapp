@@ -37,6 +37,7 @@ body {
 .Chat_header {
     padding: 0px;
     display: flex;
+    height: 10vh;
     align-items: center;
     border-bottom: 1px solid lightgray;
 }
@@ -45,16 +46,51 @@ body {
     flex: 1;
     word-wrap: break-word;
     padding-left: 20px;
+    font-size: 2vh;
 }
 
 .Chat_header_right {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     min-width: 100px;
 }
-.Chat_header .avatar{
+
+.Chat_header .avatar {
     margin: 10px 20px;
-    border:1px solid black;
+    height: 6vh;
+    width: 6vh;
+    border: 1px solid black;
+}
+
+.Chat_header_right .MuiSvgIcon-root {
+    /* border-radius: 100%; */
+    font-size: 4vh;
+}
+
+.logoutButton {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    font-size: 0;
+    cursor: pointer;
+    transition: all 1s;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.logoutButtonShown {
+    background-color: red;
+    color: white;
+    padding: 0.5vh;
+    margin: 0.5vh;
+    border-radius: 0.5vh;
+    border: none;
+    font-size: 3vh;
+    cursor: pointer;
+    transition: all 1s;
 }
 
 @media screen and (max-width: 500px) {
@@ -66,12 +102,12 @@ body {
         border: 0.1px solid black;
         margin: 0px;
         margin-top: 5px;
-
     }
 
     .Chat_header {
         flex-direction: column;
         align-items: center;
+        height: auto;
         justify-content: center;
     }
 
@@ -83,7 +119,6 @@ body {
     .Chat_header_right .MuiSvgIcon-root {
         margin: 0px;
         padding: 0px;
-        font-size: 15px;
     }
 
     .Chat_header_info {
@@ -104,6 +139,7 @@ body {
     flex: 1;
     background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
     overflow: auto;
+    padding: 0px 2vw;
     max-height: 75vh;
 }
 
@@ -113,13 +149,15 @@ body {
     padding: 10px;
     background-color: whitesmoke;
     border-radius: 10px;
-    margin: 40px;
-    margin-left: 50px;
+    margin: 40px 0px;
+    position: relative;
+    left: 0px;
+    /* margin-left: 50px; */
     width: fit-content;
 }
 
 .Chat_reciever {
-    background-color: #a4ed74ac;
+    background-color: rgba(139, 240, 51, 0.593);
 }
 
 .Chat_name {
@@ -142,8 +180,12 @@ body {
 }
 
 @media screen and (max-width: 500px) {
+    .Chat_body {
+        padding: 0px 4vw;
+    }
+
     .Chat_message {
-        margin: 30px;
+        margin: 30px 0px;
         font-size: 15px;
     }
 
@@ -173,7 +215,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 62px;
+    height: 8vh;
     border-top: 1px solid lightgray;
 }
 
@@ -186,44 +228,53 @@ body {
 .Chat_footer>form>input {
     flex: 1;
     border: none;
-    border-radius: 30px;
-    padding: 10px;
+    border-radius: 5vh;
+    padding: 1vh;
+    font-size: 3vh;
+    height: 5vh;
 }
 
 .Chat_footer button {
     border: none;
-    margin:15px;
+    margin: 15px;
     color: grey;
-    padding: 5px;
-    border-radius: 50%;
-    border:1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 0.5vh;
+    height: 5vh;
+    width: 5vh;
+    font-size: 4vh;
+    border-radius: 100%;
+    border: 1px solid gray;
 }
 
 .Chat_footer>.MuiSvgIcon-root {
     /* border:2px solid black; */
     margin: 10px;
-    font-size: 35px;
+    font-size: 5vh;
     color: gray;
 }
+
 @media screen and (max-width: 500px) {
     .Chat_footer>form>input {
-        font-size: 10px;
+        font-size: 2vh;
         padding: 5px;
     }
 }
-    
+
 
 /*!  -------------------------------------------------------------  */
 
 .messageMenu {
-    display: none;
+    font-size: 0px;
 }
 
 .messageMenu1 {
+    transition: all 1s;
     display: block;
-    position: absolute;
-    top: -25px;
-    right: -2px;
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 .App {
@@ -330,7 +381,7 @@ body {
     margin-left: 10px;
     position: absolute;
     bottom: 100%;
-    left: -100px;
+    left: -100vw;
     transition: opacity 0.2s;
     transition: all 200ms;
 }

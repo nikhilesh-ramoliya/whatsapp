@@ -15,6 +15,8 @@ function App() {
 
   const [user, setUser] = useState();
 
+
+
   //! for sign in with google and sign out
   //*---------configuration of firebase-----------------
   const auth = getAuth();
@@ -47,7 +49,7 @@ function App() {
     // eslint-disable-next-line
   }, [])
 
-
+  console.log({ user });
 
   return (
     <div className="App">
@@ -55,7 +57,7 @@ function App() {
         <Route path='/whatsapp/' element={
           user ? (<div className="app_body">
             <Sidebar />
-            <Chat user={user.email} />
+            <Chat user={user.displayName} logout={logout} />
           </div>) : (<LoginPage logout={logout} signInWithGoogle={signInWithGoogle} />)
         } />
         <Route path='/whatsapp/login' element={

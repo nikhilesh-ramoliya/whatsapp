@@ -16,10 +16,17 @@ function Chat_footer(user) {
 
     const send_message = (e) => {
         e.preventDefault();
-        axios.post("/messages/new", sendingmessage).then((response) => {
-            console.log("message sended");
-            setsendingmessage({ ...sendingmessage, message: "" })
-        })
+        if (sendingmessage.message !== "") {
+            axios.post("/messages/new", sendingmessage).then((response) => {
+                console.log("message sended");
+                setsendingmessage({ ...sendingmessage, message: "" })
+            }).then(() => {
+                var elem = document.getElementById('Chat_body');
+                elem.scrollTop = elem.scrollHeight;
+            })
+        } else {
+            document.getElementById("inputmessage").placeholder = "Please type a message";
+        }
     }
 
     const changedinput = (e) => {
@@ -64,11 +71,11 @@ function Chat_footer(user) {
                 <div className="emoji" onClick={() => { addEmoji("😆") }}>😆</div>
             </div>
             <form action="">
-                <input type="text" id="input" name="message" onChange={changedinput} value={sendingmessage.message} id="" placeholder='Type a message' />
+                <input type="text" id="input" name="message" onChange={changedinput} value={sendingmessage.message} id="inputmessage" placeholder='Type a message' />
+                <button type="submit" onClick={send_message}>
+                    <SendIcon fontSize={"inherit"} />
+                </button>
             </form>
-            <button type="submit" onClick={send_message}>
-                <SendIcon />
-            </button>
             <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerPolicy="origin"></script>
 
             {/* <MicIcon />? */}

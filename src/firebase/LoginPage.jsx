@@ -1,11 +1,10 @@
+import { Button } from '@mui/material'
 import React from 'react'
-function LoginPage({logout, signInWithGoogle}) {
-  
-
+import GoogleIcon from '@mui/icons-material/Google';
+function LoginPage({ logout, signInWithGoogle }) {
     return (
-        <div className='Loginpage'>
-            <button className='googlebutton' onClick={signInWithGoogle}>sign in with google</button>
-            <button onClick={logout}>logout</button>
+        <div >
+            <Button variant='contained' startIcon={<GoogleIcon />} color='error' onClick={signInWithGoogle}>sign in with google</Button>
         </div>
     )
 }
